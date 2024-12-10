@@ -1,95 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- ระบุภาษาเป็นภาษาอังกฤษ -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> <!-- กำหนดการเข้ารหัสเป็น UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ทำให้หน้าเว็บรองรับการแสดงผลบนอุปกรณ์ทุกขนาด -->
+    <title>Niyada | Workshop #HTML-FORM</title> <!-- ชื่อแท็บของหน้าเว็บ -->
 
-    <link rel="stylesheet" href="style.css">
-
-    <title>Kittitat| Workshop #HTML-FORM</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ลิงก์ไปยังไฟล์ CSS ที่ใช้กำหนดสไตล์ -->
+    <link rel="stylesheet" href="mystyle.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- เชื่อมต่อไปยัง Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- เตรียมการโหลดฟอนต์ -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap" rel="stylesheet"> <!-- ใช้ฟอนต์ Nunito Sans -->
 </head>
-
 <body>
-    <h1>Workshop#HTML - FORM</h1> <!-- h1 น่าจะอยู่ที่นี่ -->
-    <style>
-        /* การกำหนดสีใน <head> */
-        h1 {
-            color: rgb(197, 78, 38);
-             
-        }
-    </style>
-    <table>
-        <tr>
-            <td>ชื่อ</td>
-            <td><input type="text" id="fname" name="fname"></td>
-        </tr>
-        <tr>
-            <td>นามสกุล</td>
-            <td><input type="text" id="lname" name="lname"></td>
-        </tr>
-        <tr>
-            <td>วัน/เดือน/ปี</td>
-            <td><input placeholder="dd/mm/yyyy"></td>
-        </tr>
-        <tr>
-            <td>อายุ</td>
-            <td><input type="text" id="age" name="age"></td>
-        </tr>
-        <tr>
-            <td>เพศ</td>
-            <td>
-                <input type="radio" id="gender_male" name="gender" value="male">
-                <label for="gender_male">ชาย</label>
-                <input type="radio" id="gender_female" name="gender" value="female">
-                <label for="gender_female">หญิง</label><br>
-            </td>
-        </tr>
-        <tr>
-            <td>รูป</td>
-            <td><input type="file" id="myfile" name="myfile"></td>
-        </tr>
-        <tr>
-            <td>ที่อยู่</td>
-            <td><textarea rows="4" cols="40"></textarea></td>
-        </tr>
-        <tr>
-            <td>สีที่ชอบ</td>
-            <td>
-                <select id="fav_color" name="fav_color">
-                    <option selected="true" disabled="disabled">เลือก</option>
-                    <option value="pink">ชมพู</option>
-                    <option value="blue">ฟ้า</option>
-                    <option value="orange">ส้ม</option>
-                    <option value="yellow">เหลือง</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>แนวเพลงที่ชอบ</td>
-            <td>
-                <input type="radio" id="song1" name="your_song" value="indie">
-                <label for="song1">อินดี้</label>
-                <input type="radio" id="song2" name="your_song" value="luktung">
-                <label for="song2">ลูกทุ่ง</label>
-                <input type="radio" id="song3" name="your_song" value="other">
-                <label for="song3">อื่นๆ</label>
-            </td>
-        </tr>
-    </table>
-
-    <br>
-    <div style="display: flex;">
-        <input type="checkbox" id="form-accept" name="accept">
-        <label for="form-accept">ยินยอมให้เก็บข้อมูล</label>
-    </div>
-
-    <br>
-    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-        <button type="reset" style="background-color: white; border: 1px solid black; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Reset</button>
-        <button type="submit" style="background-color: white; border: 1px solid black; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Submit</button>
+    <div class="form"> <!-- ส่วนฟอร์มหลัก -->
+        <h1>Workshop #HTML - FORM</h1> <!-- ชื่อหัวข้อของฟอร์ม -->
+        <table> <!-- ใช้ตารางเพื่อจัดระเบียบข้อมูลในฟอร์ม -->
+            <tr> <!-- แถวของตาราง -->
+                <td>ชื่อ</td> <!-- คำอธิบายฟิลด์ -->
+                <td><input type="text" id="fname" name="fname"></td> <!-- ช่องกรอกชื่อ -->
+            </tr>
+            <tr>
+                <td>นามสกุล</td> <!-- คำอธิบายฟิลด์ -->
+                <td><input type="text" id="lname" name="lname"></td> <!-- ช่องกรอกนามสกุล -->
+            </tr>
+            <tr>
+                <td>วัน/เดือน/ปี</td> <!-- คำอธิบายฟิลด์ -->
+                <td><input type="text" placeholder="dd/mm/yyyy"></td> <!-- ช่องกรอกวันที่ -->
+            </tr>
+            <tr>
+                <td>อายุ</td> <!-- คำอธิบายฟิลด์ -->
+                <td><input type="text" id="age" name="age"></td> <!-- ช่องกรอกอายุ -->
+            </tr>
+            <tr>
+                <td>เพศ</td> <!-- คำอธิบายฟิลด์ -->
+                <td>
+                    <!-- ใช้ div เพื่อจัด layout ของตัวเลือกเพศ -->
+                    <div class="gender-container"> 
+                        <input type="radio" id="male" name="gender" value="ชาย"> <!-- ตัวเลือกเพศชาย -->
+                        <label for="male">ชาย</label> <!-- ป้ายกำกับเพศชาย -->
+                        <input type="radio" id="female" name="gender" value="หญิง"> <!-- ตัวเลือกเพศหญิง -->
+                        <label for="female">หญิง</label> <!-- ป้ายกำกับเพศหญิง -->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>รูป</td> <!-- คำอธิบายฟิลด์ -->
+                <td><input type="file" id="picture" name="picture"></td> <!-- ช่องสำหรับอัปโหลดรูปภาพ -->
+            </tr>
+            <tr>
+                <td>ที่อยู่</td> <!-- คำอธิบายฟิลด์ -->
+                <td><textarea rows="4" cols="40"></textarea></td> <!-- ช่องสำหรับกรอกที่อยู่ -->
+            </tr>
+            <tr>
+                <td>สีที่ชอบ</td> <!-- คำอธิบายฟิลด์ -->
+                <td>
+                    <!-- เมนูแบบเลื่อนลงสำหรับเลือกสีที่ชอบ -->
+                     
+                        <select id="fav_color" name="fav_color">
+                        <option selected="true" disabled="disabled">เลือก</option> <!-- ตัวเลือกเริ่มต้น -->
+                        <option value="pink">ชมพู</option> <!-- ตัวเลือกสีชมพู -->
+                        <option value="blue">ฟ้า</option> <!-- ตัวเลือกสีฟ้า -->
+                        <option value="orange">ส้ม</option> <!-- ตัวเลือกสีส้ม -->
+                        <option value="yellow">เหลือง</option> <!-- ตัวเลือกสีเหลือง -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>แนวเพลงที่ชอบ</td> <!-- คำอธิบายฟิลด์ -->
+                <td>
+                    <div class="song">
+                    <!-- ตัวเลือกแนวเพลงที่ชอบ -->
+                        <input type="radio" id="song1" name="your_song" value="indie"> <!-- แนวเพลงอินดี้ -->
+                        <label for="song1">Jazz</label>
+                        <input type="radio" id="song2" name="your_song" value="luktung"> <!-- แนวเพลงลูกทุ่ง -->
+                        <label for="song2">R&B</label>
+                        <input type="radio" id="song3" name="your_song" value="other"> <!-- แนวเพลงอื่นๆ -->
+                        <label for="song3">อื่นๆ</label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="accept">
+            <input type="checkbox" id="form-accept" name="accept">
+            <label for="form-accept">ยินยอมให้เก็บข้อมูล</label>
+            
+        </div>
+        
+        <div class="form-footer"> <!-- ส่วนท้ายของฟอร์มสำหรับปุ่ม -->
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </div>
+        
     </div>
 </body>
 </html>
