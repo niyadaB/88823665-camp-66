@@ -1,0 +1,134 @@
+:root {
+    --main-bg: rgb(195, 208, 238); /* สีพื้นหลังของหน้าจอทั้งหมด */
+    --form-bg: rgb(217, 231, 243); /* สีพื้นหลังของฟอร์ม */
+    --font-family: 'Nunito Sans', sans-serif; /* ฟอนต์หลักที่ใช้ในหน้าเว็บ */
+    --text-color: rgb(40, 0, 141); /* สีของข้อความทั่วไป */
+    --hover-bg: rgb(162, 184, 203); /* สีพื้นหลังเมื่อโฮเวอร์ปุ่ม */
+    --padding: 8px; /* ระยะห่างภายในของอินพุตและปุ่ม */
+}
+
+body {
+    background-color: var(--main-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+.form {
+    background-color: var(--form-bg);
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+h1 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0 10px;
+}
+
+td:nth-child(odd) {
+    text-align: right;
+    padding-right: 8px; /* ปรับระยะห่างให้ดูสบายตา */
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+td:nth-child(even) {
+    padding-left: 8px;
+}
+
+input, textarea, select, button {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: var(--padding);
+    font-size: 1rem;
+    font-family: var(--font-family);
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    padding: var(--padding);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--hover-bg);
+    transform: scale(1.05);
+}
+
+.gender-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* ปรับระยะห่างระหว่างตัวเลือก */
+}
+
+.song {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* ปรับระยะห่างระหว่างตัวเลือก */
+}
+.song input[type="radio"] {
+    margin: 0;
+    padding: 0;
+}
+.song label {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+.accept {
+    display: flex; /* ใช้ Flexbox จัด Layout */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวแกนนอน */
+    gap: 10px; /* ระยะห่างระหว่าง checkbox และข้อความ */
+}
+input[type="checkbox"] {
+    display: block; /* ตรวจสอบว่า checkbox แสดง */
+    width: 13px; /* กำหนดขนาด checkbox */
+    height: 20px;
+}
+.form-footer {
+    display: flex; /* ใช้ Flexbox */
+    justify-content: center; /* จัดปุ่มให้อยู่ตรงกลางแนวนอน */
+    gap: 10px; /* ช่องว่างระหว่างปุ่ม */
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบนหากต้องการ */
+}
+
+.form-footer button {
+    padding: 8px 20px; /* เพิ่มพื้นที่ภายในปุ่ม */
+    font-size: 1rem; /* ปรับขนาดตัวอักษร */
+    border: 1px solid #241c1c; /* เพิ่มกรอบ */
+    border-radius: 4px; /* ทำมุมปุ่มโค้งมน */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer */
+    transition: background-color 0.2s ease; /* ใส่เอฟเฟกต์เมื่อโฮเวอร์ */
+}
+
+.form-footer button:hover {
+    background-color: #9fb9d0; /* เปลี่ยนสีพื้นหลังเมื่อชี้ที่ปุ่ม */
+}
+
+
+
