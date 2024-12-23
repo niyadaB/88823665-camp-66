@@ -1,5 +1,5 @@
 :root {
-    --main-bg: rgb(195, 208, 238); /* สีพื้นหลังของหน้าจอทั้งหมด */
+    --main-bg: rgb(182, 193, 224); /* สีพื้นหลังของหน้าจอทั้งหมด */
     --form-bg: rgb(217, 231, 243); /* สีพื้นหลังของฟอร์ม */
     --font-family: 'Nunito Sans', sans-serif; /* ฟอนต์หลักที่ใช้ในหน้าเว็บ */
     --text-color: rgb(40, 0, 141); /* สีของข้อความทั่วไป */
@@ -16,12 +16,13 @@ body {
     font-family: var(--font-family);
     margin: 0;
     padding: 0;
+    
 }
 
 .form {
     background-color: var(--form-bg);
     width: 100%;
-    max-width: 500px;
+    max-width: 100px;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -52,7 +53,7 @@ td:nth-child(even) {
 }
 
 input, textarea, select, button {
-    width: 100%;
+    width: 10%; /* กำหนดความกว้างของช่องกรอกทั้งหมดให้เป็น 10% */
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -61,12 +62,13 @@ input, textarea, select, button {
     font-family: var(--font-family);
 }
 
+
 textarea {
     resize: none;
 }
 
 button {
-    background-color: white;
+    background-color: rgb(203, 216, 232);
     border: 1px solid black;
     padding: var(--padding);
     font-size: 1rem;
