@@ -1,0 +1,20 @@
+:root {
+    --main-bg: rgb(225, 230, 242); /* สีพื้นหลังของหน้าจอทั้งหมด */
+    --form-bg: rgb(159, 195, 227); /* สีพื้นหลังของฟอร์ม */
+    --font-family: 'Nunito Sans', sans-serif; /* ฟอนต์หลักที่ใช้ในหน้าเว็บ */
+    --text-color: rgb(40, 0, 141); /* สีของข้อความทั่วไป */
+    --hover-bg: rgb(162, 184, 203); /* สีพื้นหลังเมื่อโฮเวอร์ปุ่ม */
+    --padding: 8px; /* ระยะห่างภายในของอินพุตและปุ่ม */
+}
+
+body {
+    background-color: var(--main-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
