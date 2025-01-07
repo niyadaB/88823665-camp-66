@@ -38,9 +38,6 @@
         <?php 
         $mychar = "a";
         ?>
-        <h1> <?php echo ++$mychar; ?> </h1>
-        <?php
-        
-        
+        <h1> <?php echo ++$mychar; ?> </h1>        
     </body>
 </html>
