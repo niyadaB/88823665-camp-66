@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; /* โหลด pagekage */
 
 class MyController extends Controller
 {
