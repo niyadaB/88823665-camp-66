@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 Route::get('/home',
     [HomeController::class, 'home']);
 
+
 Route::get('/user',
     [UserController::class, 'index']);
 
@@ -29,11 +30,13 @@ Route::get('/',
 
 Route::get('/login',
     [LoginController::class, 'index']);
+Route::post('/login',
+    [LoginController::class, 'login']);
 
 Route::get('/registers' ,
     [RegisterController::class, 'index']);
 
- Route::post('/registers' ,
+ Route::post('/register' ,
     [RegisterController::class, 'create']);
 
 Route::get('/home', [HomeController::class, 'index']);
