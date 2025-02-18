@@ -1,23 +1,25 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\ProductList;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public $timestamps = false;
-    
     public function index()
     {
         $categories = Categories::all();
+        //$products = ProductList::with('category', 'user')->get();
         $products = ProductList::all();
         return view('product', compact('categories', 'products'));
     }
 
     public function store(Request $req)
     {
+          // ตรวจสอบว่าได้ล็อกอินแล้วหรือไม่
         // ตรวจสอบและ validate ข้อมูล
         $req->validate([
             'category' => 'required|string|max:255',
@@ -47,3 +49,24 @@ class ProductController extends Controller
         return view('product.index', compact('products'));
     }
 }
+
+    /*class ProductController extends Controller
+{
+    //
+    function index()
+    {
+        return view('product');
+    }
+    function store(Request $req)
+    {        $c = new Categories();
+        $c->name = $req->name;
+        $c->save();
+        foreach ($req->product_name as $value) {
+            $p = new ProductList();
+            $p->name = $value;
+            $p->category_id = $c->id;
+            //เอาไอดีจากตาราง categories มาใส่ในตาราง product_list
+            $p->save();
+        }
+    }
+}*/

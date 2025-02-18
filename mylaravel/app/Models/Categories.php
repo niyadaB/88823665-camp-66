@@ -1,11 +1,21 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Middleware;
 
-use Illuminate\Database\Eloquent\Model;
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
-class Categories extends Model
+class CheckLogin
 {
-    //
-    protected $table = "catogories";
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        return $next($request);
+    }
 }
+//check เข้า หน้า home จะเช็คว่ามี seseion user หรือไม่ ถ้าไม่มีจะ redirect ไปหน้า login

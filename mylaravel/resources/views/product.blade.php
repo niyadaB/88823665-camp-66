@@ -1,17 +1,10 @@
-@extends('layout.default_with_menu')
 
-@section('content')
-<form>
-
+<h1>My Controller</h1>
+<h1>myinput: {{ $myinput }}</h1>
+<h1>myvalue: <?php  echo $myvalue; ?></h1>
+<form method="post"
+      action="{{ url('/mycontroller') }}">
+    @csrf
+    <input type="text" name="myinput">
+    <button type="submit">Submit</button>
 </form>
-<table class = "table">
-    <thead>
-
-    </thead>
-    <tbody>
-
-    </tbody>
-</table>
-@endsection
-@section('scripts')
-@endsection

@@ -15,9 +15,10 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table ->timestamps();
         });
 
-        Schema::create('product_list', function (Blueprint $table) {
+        Schema::create('product_lists', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('category_id')->unsigned()->index();
             $table->bigInteger('user_id')->unsigned()->index();
@@ -33,9 +34,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-
         Schema::dropIfExists('product_list');
         Schema::dropIfExists('categories');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropTimestamps(); // ลบคอลัมน์ created_at และ updated_at
+        });
     }
 };
