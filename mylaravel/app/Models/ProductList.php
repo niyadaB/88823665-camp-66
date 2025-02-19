@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductList extends Model
 {
-    protected $table = 'product_lists'; // ชื่อตาราง
+    protected $fillable = ['name', 'category_id', 'user_id'];
+
+    protected $table = 'product_list'; // ชื่อตาราง
     public $timestamps = false; // ปิดการใช้งาน created_at และ updated_at
 
     public function category()

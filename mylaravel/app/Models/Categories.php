@@ -1,21 +1,29 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Models;
 
-use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Database\Eloquent\Model;
+namespace App\Models;
 
-class CheckLogin
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Categories extends Model
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle(Request $request, Closure $next): Response
+    protected $fillable = ['name'];
+    public $timestamps = false;
+
+    public function products()
     {
-        return $next($request);
+        return $this->hasMany(ProductList::class, 'category_id');
     }
 }
-//check เข้า หน้า home จะเช็คว่ามี seseion user หรือไม่ ถ้าไม่มีจะ redirect ไปหน้า login
+
+
+/*class Categories extends Model
+{
+    //
+    protected $table = "categories"; // ชื่อตาราง
+    public $timestamps = false; // ไม่มี created_at กับ updated_at ในตาราง
+    
+}*/

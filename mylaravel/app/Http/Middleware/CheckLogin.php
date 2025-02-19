@@ -1,49 +1,21 @@
 <?php
-namespace App\Http\Controllers;
 
+namespace App\Http\Middleware;
+
+use Closure;
 use Illuminate\Http\Request;
-use App\Models\Categories;
-use App\Models\ProductList;
+use Symfony\Component\HttpFoundation\Response;
 
-class ProductController extends Controller
+class CheckLogin
 {
-    public $timestamps = false;
-    
-    public function index()
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
     {
-        $categories = Categories::all();
-        $products = ProductList::all();
-        return view('product', compact('categories', 'products'));
-    }
-
-    public function store(Request $req)
-    {
-        // ตรวจสอบและ validate ข้อมูล
-        $req->validate([
-            'category' => 'required|string|max:255',
-            'product_name' => 'required|array',
-            'product_name.*' => 'required|string|max:255',
-        ]);
-
-        // สร้างหมวดหมู่ใหม่
-        $user = session()->get('user');
-        $category = Categories::create([
-            'name' => $req->category,
-        ]);
-
-        // เพิ่มสินค้าโดยเชื่อมโยงกับ category_id และ user_id (จากผู้ที่ล็อกอิน)
-        foreach ($req->product_name as $value) {
-            ProductList::create([
-                'name' => $value,
-                'category_id' => $category->id,
-                'user_id' => auth()->$user->id,
-            ]);
-        }
-
-        // ดึงข้อมูลทั้งหมดเพื่อแสดงผล
-        $products = ProductList::with('category', 'user')->get();
-
-        // ส่งข้อมูลกลับไปแสดงในหน้าจอ
-        return view('product.index', compact('products'));
+        return $next($request);
     }
 }
+//check เข้า หน้า home จะเช็คว่ามี seseion user หรือไม่ ถ้าไม่มีจะ redirect ไปหน้า login

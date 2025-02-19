@@ -38,7 +38,7 @@ class ProductController extends Controller
             ProductList::create([
                 'name' => $value,
                 'category_id' => $category->id,
-                'user_id' => auth()->$user->id,
+                'user_id' => $user->id
             ]);
         }
 
@@ -46,7 +46,7 @@ class ProductController extends Controller
         $products = ProductList::with('category', 'user')->get();
 
         // ส่งข้อมูลกลับไปแสดงในหน้าจอ
-        return view('product.index', compact('products'));
+        return view('product', compact('products'));
     }
 }
 
